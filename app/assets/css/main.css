@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+/* 像素风格字体 - 使用本地 Monocraft 字体 */
+@font-face {
+  font-family: "Monocraft";
+  src: url("../fonts/Monocraft.ttc") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 配色变量 */
+:root {
+  /* 主色调 */
+  --color-primary: #5371ad;
+  --color-primary-dark: #3a4f7f;
+  --color-primary-darker: #2a5298;
+  --color-primary-light: #608bc1;
+  --color-primary-darker-alt: #133e87;
+
+  /* 装饰色 */
+  --color-highlight: #cdefff;
+  --color-shadow: #89affd;
+
+  /* 中性色 */
+  --color-text: #ffffff;
+  --color-border: #475569;
+}
+
+/* 全局样式 */
+body {
+  font-family: "Monocraft", "Courier New", monospace;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* 确保所有文本都使用像素字体 */
+* {
+  font-family: "Monocraft", "Courier New", monospace;
+}
+
+/* 像素风格边框 */
+.pixel-border {
+  box-shadow: 0 0 0 2px var(--color-primary-darker),
+    0 0 0 4px var(--color-highlight), 0 0 0 6px var(--color-primary-darker);
+}
+
+/* 像素风格按钮效果 - 层叠立体风格 (使用定位) */
+/* 使用方式: <div class="pixel-button-container"><div class="pixel-button-back">内容</div><div class="pixel-button-front">内容</div></div> */
+
+.pixel-button-container {
+  @apply relative inline-block;
+}
+
+.pixel-button-back,
+.pixel-button-front {
+  @apply border-4;
+  border-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1310_2574)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4 0H3V1H2V2H1V3H0V4V5H1V6H2V7H3V8H4H5V7H6V6H7V5H8V4V3H7V2H6V1H5V0H4ZM5 1V2H6V3H7V4V5H6V6H5V7H4H3V6H2V5H1V4V3H2V2H3V1H4H5Z' fill='%23475569'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1310_2574'%3E%3Crect width='8' height='8' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A")
+    3 / 6px / 0px stretch;
+  clip-path: polygon(
+    6px 0px,
+    6px 2px,
+    4px 2px,
+    4px 4px,
+    2px 4px,
+    2px 6px,
+    0px 6px,
+    0px 8px,
+    0px calc(100% - 6px),
+    2px calc(100% - 6px),
+    2px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px calc(100% - 2px),
+    6px calc(100% - 2px),
+    6px calc(100%),
+    8px calc(100%),
+    calc(100% - 6px) calc(100%),
+    calc(100% - 6px) calc(100% - 2px),
+    calc(100% - 4px) calc(100% - 2px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 2px) calc(100% - 4px),
+    calc(100% - 2px) calc(100% - 6px),
+    calc(100%) calc(100% - 6px),
+    calc(100%) calc(100% - 8px),
+    calc(100%) 6px,
+    calc(100% - 2px) 6px,
+    calc(100% - 2px) 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 2px,
+    calc(100% - 6px) 2px,
+    calc(100% - 6px) 0px,
+    calc(100% - 8px) 0px
+  );
+}
+
+.pixel-button-back {
+  @apply relative bg-[#3a4f7f];
+  top: 4px;
+}
+
+.pixel-button-front {
+  @apply absolute top-0 left-0;
+  transition: top 0.1s ease;
+}
+
+/* active 时 front 向下移动 4px,与 back 重合 */
+.pixel-button-container:active .pixel-button-front {
+  top: 4px;
+}
+
+/* 8-bit 动画 */
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+/* 像素风格卡片 - 原生CSS实现 */
+.pixel-card {
+  background: var(--color-primary-light);
+  border: 4px solid var(--color-primary-darker-alt);
+  box-shadow: 0 -4px var(--color-primary-darker) inset,
+    -4px 0 var(--color-primary-darker) inset, 0 4px var(--color-highlight) inset,
+    4px 0 var(--color-highlight) inset;
+  clip-path: polygon(
+    0px 4px,
+    4px 4px,
+    4px 0px,
+    calc(100% - 4px) 0px,
+    calc(100% - 4px) 4px,
+    100% 4px,
+    100% calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) 100%,
+    4px 100%,
+    4px calc(100% - 4px),
+    0px calc(100% - 4px)
+  );
+  transition: all 0.2s ease;
+}
+
+.pixel-card:hover {
+  background: var(--color-primary-darker);
+  box-shadow: 0 -4px var(--color-primary-light) inset,
+    -4px 0px var(--color-primary-light) inset,
+    -3px 0 var(--color-primary-darker-alt),
+    0 -3px var(--color-primary-darker-alt),
+    3px 0 var(--color-primary-darker-alt), 0 3px var(--color-primary-darker-alt);
+  transform: translateY(-2px);
+}
+
+/* 像素风格内容容器 */
+.pixel-content {
+  background: var(--color-primary-darker-alt);
+  border: 4px solid var(--color-primary-darker);
+  box-shadow: 0 -4px var(--color-primary-darker) inset,
+    -4px 0 var(--color-primary-darker) inset, 0 4px var(--color-highlight) inset,
+    4px 0 var(--color-highlight) inset;
+  clip-path: polygon(
+    0px 4px,
+    4px 4px,
+    4px 0px,
+    calc(100% - 4px) 0px,
+    calc(100% - 4px) 4px,
+    100% 4px,
+    100% calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) 100%,
+    4px 100%,
+    4px calc(100% - 4px),
+    0px calc(100% - 4px)
+  );
+}
+
+/* 像素风格小卡片 */
+.pixel-tag {
+  background: var(--color-primary-darker-alt);
+  border: 2px solid var(--color-primary-darker);
+  box-shadow: 0 -2px var(--color-primary-darker) inset,
+    -2px 0 var(--color-primary-darker) inset, 0 2px var(--color-highlight) inset,
+    2px 0 var(--color-highlight) inset;
+  clip-path: polygon(
+    0px 2px,
+    2px 2px,
+    2px 0px,
+    calc(100% - 2px) 0px,
+    calc(100% - 2px) 2px,
+    100% 2px,
+    100% calc(100% - 2px),
+    calc(100% - 2px) calc(100% - 2px),
+    calc(100% - 2px) 100%,
+    2px 100%,
+    2px calc(100% - 2px),
+    0px calc(100% - 2px)
+  );
+}
