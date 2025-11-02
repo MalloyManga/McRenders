@@ -26,7 +26,7 @@ const artworks = [
         <section class="text-center py-16 mb-12">
             <div class="inline-block mb-8">
                 <h1 class="text-4xl md:text-6xl text-white mb-4 pixel-border bg-[#133e87] px-8 py-6">
-                    Pixel Art Gallery
+                    MC Art Gallery
                 </h1>
             </div>
             <p class="text-[#cdefff] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -87,3 +87,6 @@ const artworks = [
         </section>
     </div>
 </template>
+
+<style scoped>
+</style>

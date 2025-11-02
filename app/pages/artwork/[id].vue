@@ -5,6 +5,9 @@ import Irongolem from '../../assets/images/Irongolem.gif'
 const route = useRoute()
 const artworkId = computed(() => route.params.id)
 
+// 图片放大查看状态
+const isImageModalOpen = ref(false)
+
 const artworks = {
     '1': {
         id: 1,
@@ -57,7 +60,7 @@ if (!artwork.value) {
         <!-- Artwork Detail -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <!-- Image -->
-            <div class="pixel-card p-4">
+            <div class="pixel-card p-4 cursor-pointer" @click="isImageModalOpen = true">
                 <div class="border-4 border-[#2A5298] overflow-hidden">
                     <img :src="artwork.image" :alt="artwork.title" class="w-full h-auto" />
                 </div>
@@ -144,5 +147,9 @@ if (!artwork.value) {
                 </NuxtLink>
             </div>
         </div>
+
+        <!-- Image Modal -->
+        <ImageModal :src="artwork.image" :alt="artwork.title" :is-open="isImageModalOpen"
+            @close="isImageModalOpen = false" />
     </div>
 </template>
