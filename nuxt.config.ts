@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     baseURL: '/ArtGallery/',
     head: {
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/villager.ico' }
+        { rel: 'icon', type: 'image/x-icon', href: '/ArtGallery/villager.ico' }
       ]
     }
   },
