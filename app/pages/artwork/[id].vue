@@ -111,11 +111,13 @@ if (!artwork.value) {
                 <!-- Share -->
                 <div class="text-center">
                     <button class="pixel-button-container w-full">
-                        <div class="pixel-button-back bg-[#608BC1] px-8 py-4 text-white w-full flex items-center justify-center gap-2">
+                        <div
+                            class="pixel-button-back bg-[#608BC1] px-8 py-4 text-white w-full flex items-center justify-center gap-2">
                             <span>Share Artwork</span>
                             <img :src="Irongolem" alt="Share" class="w-6 h-6 inline-block" />
                         </div>
-                        <div class="pixel-button-front bg-[#608BC1] px-8 py-4 text-white w-full flex items-center justify-center gap-2">
+                        <div
+                            class="pixel-button-front bg-[#608BC1] px-8 py-4 text-white w-full flex items-center justify-center gap-2">
                             <span>Share Artwork</span>
                             <img :src="Irongolem" alt="Share" class="w-6 h-6 inline-block" />
                         </div>

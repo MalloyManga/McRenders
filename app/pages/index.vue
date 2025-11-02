@@ -85,28 +85,5 @@ const artworks = [
                 </div>
             </div>
         </section>
-
-        <!-- Pixel Art Decoration -->
-        <div class="fixed bottom-8 right-8 text-6xl opacity-50 pointer-events-none animate-bounce">
-            🎮
-        </div>
     </div>
 </template>
-
-<style scoped>
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-.animate-bounce {
-    animation: float 3s ease-in-out infinite;
-}
-</style>
