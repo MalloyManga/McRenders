@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  title: 'McRenders - Pixel Art Gallery',
+  title: 'McRenders - MC Art Gallery',
   meta: [
     { name: 'description', content: 'Explore unique pixel art creations' }
   ]

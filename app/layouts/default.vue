@@ -46,7 +46,7 @@ import JumpingGrassBlock from '../assets/images/JumpingGrassBlock.gif'
         <!-- Footer -->
         <footer class="border-t-4 border-[#2A5298] bg-[#133e87] text-white py-8 mt-16">
             <div class="container mx-auto px-4 text-center">
-                <p class="text-sm mb-4">🎮 Pixel Art Gallery 🎮</p>
+                <p class="text-sm mb-4">🎮 MC Art Gallery 🎮</p>
                 <p class="text-xs opacity-75">© 2025 McRenders. All rights reserved.</p>
             </div>
         </footer>
