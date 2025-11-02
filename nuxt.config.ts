@@ -5,6 +5,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
   css: ['./app/assets/css/main.css'],
+  app: {
+    baseURL: '/ArtGallery/',
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/villager.ico' }
+      ]
+    }
+  },
   vite: {
     plugins: [
       tailwindcss(),
